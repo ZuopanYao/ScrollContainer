@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ScrollContainer"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "可滚动容器，支持 UILabel 文本滚动等"
 
   # This description is used to generate tags and improve search results.
