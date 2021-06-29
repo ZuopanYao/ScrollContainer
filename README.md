@@ -129,7 +129,7 @@ class ViewController: UIViewController {
 
 Preview
 
-![preview](preview.mp4)
+![preview](preview.gif)
 
 ## License / 许可证
 
