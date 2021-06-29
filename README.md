@@ -57,11 +57,79 @@ container.autoreverses = true
 /// 动画重复次数，默认: 无限次
 //container.repeatCount = Float.greatestFiniteMagnitude
 
-
-/// 当你需要启动动画时，标志需要刷新，这是必须的
-/// 如里是在控制器，建议在 viewDidAppear 方法里调用
-// container.setNeedsLayout()
 ```
+
+## Example
+
+```
+class ViewController: UIViewController {
+    
+    var container1: SCContainer!
+    var container2: SCContainer!
+    var container3: SCContainer!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let text = "开发商 Playground Games 表示，由于新作即将推出，他们将主要精力都投入了新作的最后准备，因此《极限竞速：地平线 4》已经基本停止了内容更新。"
+        let width: CGFloat = view.width
+        
+        let tip1 = UILabel()
+        tip1.text = "只滚动一次"
+        tip1.textColor = .red
+        tip1.frame = CGRect(x: 0, y: 90.0, width: width, height: 30.0)
+        view.addSubview(tip1)
+        
+        let tip2 = UILabel()
+        tip2.text = "不断来回滚动"
+        tip2.textColor = .blue
+        tip2.frame = CGRect(x: 0, y: 170.0, width: width, height: 30.0)
+        view.addSubview(tip2)
+
+        let tip3 = UILabel()
+        tip3.text = "不断重复滚动"
+        tip3.textColor = .purple
+        tip3.frame = CGRect(x: 0, y: 250.0, width: width, height: 30.0)
+        view.addSubview(tip3)
+
+        let label1 = UILabel()
+        label1.text = text
+        label1.textColor = .red
+        
+        let label2 = UILabel()
+        label2.text = text
+        label2.textColor = .blue
+        
+        let label3 = UILabel()
+        label3.text = text
+        label3.textColor = .purple
+        
+        container1 = label1.sc.scrollable()
+        container1.scrollStart = .left
+        container1.scrollSpeed = 100.0
+        container1.repeatCount = 1.0
+        container1.frame = CGRect(x: 0.0, y: 120.0, width: width, height: 40.0)
+        view.addSubview(container1)
+        
+        container2 = label2.sc.scrollable()
+        container2.scrollStart = .middle
+        container2.scrollSpeed = 100.0
+        container2.autoreverses = true
+        container2.frame = CGRect(x: 0.0, y: 200.0, width: width, height: 40.0)
+        view.addSubview(container2)
+        
+        container3 = label3.sc.scrollable()
+        container3.scrollStart = .right
+        container3.scrollSpeed = 100.0
+        container3.frame = CGRect(x: 0.0, y: 280.0, width: width, height: 40.0)
+        view.addSubview(container3)
+    }
+}
+```
+
+Preview
+
+![preview](preview.mp4)
 
 ## License / 许可证
 
